@@ -27,3 +27,23 @@ variable "private_subnets" {
   description = "This contains the cidr_range of the private subnets"
   type        = list(string)
 }
+
+variable "ingress_rules" {
+  description = "This contains the ingress rules"
+  type = list(object({
+    from_port = number
+    to_port = number
+    protocol = string
+    cidr_blocks = list(string)
+  }))
+}
+
+variable "egress_rules" {
+  description = "This contains the egress rules"
+  type = list(object({
+    from_port = number
+    to_port = number
+    protocol = string
+    cidr_blocks = list(string)
+  }))
+}
